@@ -25,15 +25,31 @@ public class CreateorJoin : MonoBehaviourPunCallbacks
         
     }
 
+    public override void OnCreatedRoom()
+    {
+        SceneManager.LoadScene("SelectionRoom");
+    }
+
+    public override void OnJoinedRoom()
+    {
+        StartCoroutine(SceneChangeCR());
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        // notAvailableRoom.SetActive(true);
+        Debug.Log(message);
+    }
+
 
 
 
     public void CreateRoom(){
-        PhotonNetwork.CreateRoom(create.text, new RoomOptions { MaxPlayers = 2 }, null);
+        PhotonNetwork.CreateRoom(create.text, new RoomOptions { MaxPlayers = 10, PublishUserId = true }, null);
     }
 
     public void JoinRoom(){
-        StartCoroutine(SceneChangeCR());
+        PhotonNetwork.JoinRoom(join.text);
     }
 
     IEnumerator SceneChangeCR(){

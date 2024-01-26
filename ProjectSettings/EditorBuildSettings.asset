@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreateAndJoin.unity
     guid: 9501565bd309e52409ac9c08c1bbbb4a
+  - enabled: 1
+    path: Assets/Scenes/SelectionRoom.unity
+    guid: 3d46e8ffbc7d6124c9ebc3c08862a3b2
   m_configObjects: {}
